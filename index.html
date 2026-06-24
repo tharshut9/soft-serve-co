@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+
+     
+</body>
+</html>
+
+meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soft Serve Co. — Alwarpet, Chennai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1410;
+    --paper:#f6ecda;
+    --paper-2:#efe1c8;
+    --orange:#d9622b;
+    --orange-deep:#9c3a17;
+    --orange-soft:#f3a25c;
+    --butter:#f0b429;
+    --sage:#7c8d6a;
+    --line: rgba(28,20,16,0.14);
+    --shadow: 0 18px 40px rgba(28,20,16,0.18);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--ink); color:var(--ink); font-family:'DM Sans', sans-serif; overflow-x:hidden; }
+  ::selection{ background:var(--butter); color:var(--ink); }
+  h1,h2,h3,.display{ font-family:'Fredoka', sans-serif; font-weight:600; letter-spacing:-0.01em; }
+  .hand{ font-family:'Caveat', cursive; font-weight:600; }
+  a{ color:inherit; text-decoration:none; }
+  img{ display:block; max-width:100%; }
+
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:999; opacity:0.05; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 5vw; background:rgba(28,20,16,0.0);
+    transition:background .35s ease, padding .35s ease, box-shadow .35s ease;
+  }
+  header.scrolled{ background:rgba(20,14,11,0.92); backdrop-filter:blur(8px); padding:12px 5vw; box-shadow:0 6px 24px rgba(0,0,0,0.35); }
+  .brand{ display:flex; align-items:center; gap:10px; color:var(--paper); font-size:1.3rem; }
+  .brand .stamp{ width:38px; height:38px; border-radius:50%; border:2px solid var(--orange-soft); display:flex; align-items:center; justify-content:center; font-family:'Caveat'; font-weight:700; color:var(--orange-soft); font-size:1rem; }
+  nav ul{ list-style:none; display:flex; gap:34px; }
+  nav a{ color:var(--paper); opacity:.85; font-size:0.92rem; font-weight:500; position:relative; padding-bottom:4px; }
+  nav a::after{ content:''; position:absolute; left:0; bottom:0; height:2px; width:0%; background:var(--orange-soft); transition:width .3s ease; }
+  nav a:hover::after{ width:100%; }
+  nav a:hover{ opacity:1; }
+  .nav-cta{ background:var(--orange); color:var(--paper) !important; opacity:1 !important; padding:10px 20px; border-radius:30px; font-weight:600; font-size:0.88rem; box-shadow:0 6px 18px rgba(217,98,43,0.45); }
+  .nav-cta::after{ display:none; }
+
+  .hero{ min-height:100svh; position:relative; background:var(--ink); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:120px 6vw 80px; }
+  .hero::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 700px 500px at 18% 18%, rgba(217,98,43,0.35), transparent 60%),
+      radial-gradient(ellipse 600px 600px at 85% 80%, rgba(124,141,106,0.25), transparent 60%);
+  }
+  .hero-grid{ position:relative; z-index:2; display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center; max-width:1280px; width:100%; }
+  .eyebrow{ font-family:'Caveat'; font-size:1.4rem; color:var(--orange-soft); display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+  .eyebrow svg{ width:26px; height:26px; }
+  .hero h1{ color:var(--paper); font-size:clamp(2.8rem, 6vw, 5.2rem); line-height:0.98; }
+  .hero h1 span{ color:var(--orange-soft); }
+  .hero p.lede{ color:rgba(246,236,218,0.78); font-size:1.08rem; max-width:480px; margin-top:22px; line-height:1.6; }
+  .hero-ctas{ display:flex; gap:16px; margin-top:34px; flex-wrap:wrap; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:15px 28px; border-radius:40px; font-weight:600; font-size:0.95rem; transition:transform .25s ease, box-shadow .25s ease; }
+  .btn-solid{ background:var(--orange); color:var(--paper); box-shadow:0 10px 26px rgba(217,98,43,0.45); }
+  .btn-outline{ border:1.5px solid rgba(246,236,218,0.4); color:var(--paper); }
+  .btn:hover{ transform:translateY(-3px); }
+  .btn-solid:hover{ box-shadow:0 16px 34px rgba(217,98,43,0.6); }
+  .hero-meta{ display:flex; gap:26px; margin-top:46px; flex-wrap:wrap; }
+  .hero-meta div{ color:var(--paper); }
+  .hero-meta .num{ font-family:'Fredoka'; font-size:1.5rem; color:var(--orange-soft); }
+  .hero-meta .lbl{ font-size:0.78rem; opacity:.65; letter-spacing:0.04em; text-transform:uppercase; }
+
+  .hero-art{ position:relative; }
+  .torn-card{ position:relative; border-radius:28px; overflow:hidden; box-shadow:var(--shadow); transform:rotate(2deg); transition:transform .6s ease; }
+  .torn-card img{ width:100%; height:560px; object-fit:cover; object-position: 50% 30%; }
+  .hero-art:hover .torn-card{ transform:rotate(0deg) scale(1.01); }
+  .tape{ position:absolute; width:90px; height:34px; background:rgba(246,236,218,0.55); border:1px solid rgba(255,255,255,0.4); box-shadow:0 4px 10px rgba(0,0,0,0.2); }
+  .tape.t1{ top:-14px; left:30px; transform:rotate(-8deg); }
+  .tape.t2{ bottom:-14px; right:40px; transform:rotate(6deg); }
+  .floaty{ position:absolute; font-family:'Caveat'; font-weight:700; color:var(--butter); font-size:1.3rem; background:var(--ink); padding:6px 14px; border-radius:30px; border:1px solid rgba(240,180,41,0.5); }
+  .floaty.f1{ top:18px; right:-18px; transform:rotate(-6deg); }
+  .floaty.f2{ bottom:30px; left:-26px; transform:rotate(5deg); }
+
+  .scroll-cue{ position:absolute; bottom:26px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:rgba(246,236,218,0.6); font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase; z-index:3; }
+  .scroll-cue .stick{ width:1px; height:34px; background:linear-gradient(rgba(246,236,218,0.6), transparent); position:relative; overflow:hidden; }
+  .scroll-cue .stick::after{ content:''; position:absolute; top:-34px; left:0; width:100%; height:100%; background:var(--orange-soft); animation:slide 1.8s ease-in-out infinite; }
+  @keyframes slide{ to{ top:34px; } }
+
+  section{ position:relative; }
+  .paper-section{ background:var(--paper); border-radius:36px 36px 0 0; margin-top:-36px; position:relative; z-index:5; padding:100px 6vw; }
+
+  .section-tag{ display:inline-flex; align-items:center; gap:8px; font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange-deep); font-weight:700; margin-bottom:14px; }
+  .section-tag::before{ content:''; width:22px; height:1.5px; background:var(--orange-deep); display:inline-block; }
+
+  h2.headline{ font-size:clamp(2.2rem, 4.2vw, 3.4rem); max-width:760px; line-height:1.05; }
+  .sub{ font-size:1.02rem; opacity:.72; max-width:560px; margin-top:16px; line-height:1.6; }
+
+  .reveal{ opacity:0; transform:translateY(36px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  .reveal.r1{ transition-delay:.05s; }
+  .reveal.r2{ transition-delay:.15s; }
+  .reveal.r3{ transition-delay:.25s; }
+  .reveal.r4{ transition-delay:.35s; }
+
+  .about-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center; margin-top:60px; }
+  .about-art{ position:relative; }
+  .about-art .ripped{ width:100%; border-radius:20px; box-shadow:var(--shadow); transform:rotate(-2deg); }
+  .pin{ position:absolute; width:22px; height:22px; border-radius:50%; background:var(--orange); box-shadow:0 4px 8px rgba(0,0,0,0.3), inset 0 -3px 4px rgba(0,0,0,0.25); top:-10px; left:50%; }
+  .about-points{ display:flex; flex-direction:column; gap:26px; margin-top:30px; }
+  .point{ display:flex; gap:18px; align-items:flex-start; }
+  .point .ic{ width:46px; height:46px; flex:none; border-radius:14px; background:var(--orange); color:var(--paper); display:flex; align-items:center; justify-content:center; font-size:1.3rem; }
+  .point h4{ font-family:'Fredoka'; font-size:1.08rem; margin-bottom:4px; }
+  .point p{ font-size:0.92rem; opacity:.7; line-height:1.55; max-width:420px; }
+
+  .menu-section{ background:var(--paper-2); }
+  .menu-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:34px; margin-top:60px; }
+  .menu-card{ position:relative; background:var(--paper); border-radius:24px; padding:18px 18px 26px; box-shadow:0 14px 30px rgba(28,20,16,0.12); transition:transform .4s ease, box-shadow .4s ease; }
+  .menu-card:hover{ transform:translateY(-10px) rotate(-1deg); box-shadow:0 24px 44px rgba(28,20,16,0.22); }
+  .menu-card .imgwrap{ border-radius:16px; overflow:hidden; height:230px; margin-bottom:18px; }
+  .menu-card .imgwrap img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+  .menu-card:hover .imgwrap img{ transform:scale(1.08); }
+  .menu-card .tag-label{ font-family:'Caveat'; font-weight:700; color:var(--orange-deep); font-size:1.15rem; position:absolute; top:14px; left:14px; background:var(--paper); padding:3px 12px; border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.15); }
+  .menu-card h3{ font-size:1.3rem; margin-bottom:8px; }
+  .menu-card p{ font-size:0.88rem; opacity:.68; line-height:1.5; }
+  .price{ margin-top:14px; display:flex; justify-content:space-between; align-items:center; }
+  .price .amt{ font-family:'Fredoka'; color:var(--orange); font-weight:600; }
+  .price .ord{ font-size:0.78rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink); opacity:.55; }
+
+  .strip{ background:var(--orange); padding:22px 0; overflow:hidden; position:relative; }
+  .marquee{ display:flex; gap:50px; white-space:nowrap; animation:scrollMarquee 28s linear infinite; }
+  .marquee span{ font-family:'Fredoka'; color:var(--paper); font-size:1.05rem; display:flex; align-items:center; gap:14px; }
+  .marquee span::after{ content:'✦'; color:var(--butter); }
+  @keyframes scrollMarquee{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+  .feat-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:2px; background:var(--line); margin-top:60px; border-radius:24px; overflow:hidden; }
+  .feat{ background:var(--paper); padding:30px 24px; transition:background .3s ease; }
+  .feat:hover{ background:var(--orange); color:var(--paper); }
+  .feat .ic{ font-size:1.6rem; margin-bottom:14px; }
+  .feat h4{ font-family:'Fredoka'; font-size:1rem; margin-bottom:6px; }
+  .feat p{ font-size:0.82rem; opacity:.65; line-height:1.5; }
+  .feat:hover p{ opacity:.88; }
+
+  .gallery{ background:var(--ink); padding:100px 6vw; color:var(--paper); }
+  .gallery .section-tag{ color:var(--orange-soft); }
+  .gallery .section-tag::before{ background:var(--orange-soft); }
+  .gallery-row{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:24px; margin-top:60px; }
+  .gallery-row img{ width:100%; height:380px; object-fit:cover; border-radius:22px; box-shadow:var(--shadow); }
+  .gallery-row .tall{ height:100%; }
+  .gallery-row .stack{ display:flex; flex-direction:column; gap:24px; }
+  .gallery-row .stack img{ height:178px; }
+  .par{ will-change:transform; }
+
+  .loc-section{ background:var(--paper); }
+  .loc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-top:60px; align-items:center; }
+  .loc-card{ background:var(--ink); color:var(--paper); border-radius:28px; padding:42px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+  .loc-card::before{ content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle, rgba(217,98,43,0.35), transparent 70%); }
+  .rating{ display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .rating .stars{ color:var(--butter); letter-spacing:2px; }
+  .rating .count{ font-size:0.82rem; opacity:.6; }
+  .loc-card h3{ font-size:1.6rem; margin-bottom:10px; }
+  .loc-card .addr{ font-size:0.94rem; opacity:.75; line-height:1.6; margin-bottom:24px; }
+  .loc-card .hours{ display:flex; gap:10px; align-items:center; font-size:0.92rem; margin-bottom:30px; }
+  .dot-live{ width:9px; height:9px; border-radius:50%; background:#6fbf6f; box-shadow:0 0 0 4px rgba(111,191,111,0.25); }
+  .loc-tags{ display:flex; flex-wrap:wrap; gap:10px; }
+  .loc-tags span{ font-size:0.76rem; padding:7px 13px; border-radius:30px; border:1px solid rgba(246,236,218,0.25); opacity:.85; }
+  .loc-card .btn{ margin-top:30px; }
+
+  .form-card .hand{ font-size:1.6rem; color:var(--orange-deep); }
+  .booking{ margin-top:18px; display:flex; flex-direction:column; gap:14px; }
+  .booking .row{ display:flex; gap:14px; }
+  .booking input, .booking select{ flex:1; padding:14px 16px; border-radius:14px; border:1.5px solid var(--line); background:var(--paper); font-family:'DM Sans'; font-size:0.92rem; color:var(--ink); }
+  .booking input:focus, .booking select:focus{ outline:none; border-color:var(--orange); }
+  .booking button{ margin-top:6px; background:var(--orange); color:var(--paper); border:none; padding:16px; border-radius:14px; font-family:'Fredoka'; font-size:1rem; cursor:pointer; transition:transform .25s ease, box-shadow .25s ease; box-shadow:0 10px 24px rgba(217,98,43,0.4); }
+  .booking button:hover{ transform:translateY(-2px); }
+
+  footer{ background:var(--ink); color:rgba(246,236,218,0.7); padding:70px 6vw 30px; border-top:1px solid rgba(246,236,218,0.08); }
+  .foot-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px; padding-bottom:50px; }
+  .foot-brand{ max-width:340px; }
+  .foot-brand .brand{ color:var(--paper); margin-bottom:14px; }
+  .foot-brand p{ font-size:0.88rem; line-height:1.6; opacity:.7; }
+  .foot-links{ display:flex; gap:70px; flex-wrap:wrap; }
+  .foot-col h5{ color:var(--paper); font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:16px; }
+  .foot-col a{ display:block; font-size:0.88rem; opacity:.65; margin-bottom:10px; transition:opacity .2s ease; }
+  .foot-col a:hover{ opacity:1; color:var(--orange-soft); }
+  .foot-bottom{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; border-top:1px solid rgba(246,236,218,0.08); padding-top:26px; font-size:0.78rem; opacity:.55; }
+
+  @media(max-width:980px){
+    nav, .nav-cta{ display:none; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-art{ order:-1; }
+    .about-grid{ grid-template-columns:1fr; }
+    .menu-grid{ grid-template-columns:1fr 1fr; }
+    .feat-grid{ grid-template-columns:1fr 1fr; }
+    .gallery-row{ grid-template-columns:1fr; }
+    .gallery-row .stack{ flex-direction:row; }
+    .gallery-row .stack img{ height:220px; }
+    .loc-grid{ grid-template-columns:1fr; }
+  }
+  @media(max-width:600px){
+    .menu-grid{ grid-template-columns:1fr; }
+    .feat-grid{ grid-template-columns:1fr; }
+    .booking .row{ flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header id="siteHeader">
+  <div class="brand"><div class="stamp">SS</div>Soft Serve Co.</div>
+  <nav>
+    <ul>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#visit">Visit Us</a></li>
+    </ul>
+  </nav>
+  <a href="#visit" class="nav-cta">Book a Table</a>
+</header>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L13.5 9 21 12 13.5 15 12 22 10.5 15 3 12 10.5 9 12 2Z" fill="currentColor"/></svg>
+        Alwarpet, Chennai · Good food, good mood
+      </div>
+      <h1>Toast, drizzled <br> & <span>torn from</span><br> the everyday.</h1>
+      <p class="lede">A neighbourhood café and dessert parlour plating up loaded toasts, soft-serve, and all-day breakfasts — built one paper-cut, hand-drawn detail at a time.</p>
+      <div class="hero-ctas">
+        <a href="#order" class="btn btn-solid">Order Online ↗</a>
+        <a href="#visit" class="btn btn-outline">Book a Table</a>
+      </div>
+      <div class="hero-meta">
+        <div><div class="num">3.0★</div><div class="lbl">32 reviews</div></div>
+        <div><div class="num">12+</div><div class="lbl">signature toasts</div></div>
+        <div><div class="num">Open</div><div class="lbl">till 12 am daily</div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="torn-card">
+        <img src="img4.png.jpeg" alt="Burrata strawberry toast, illustrated">
+        <div class="tape t1"></div>
+        <div class="tape t2"></div>
+      </div>
+      <div class="floaty f1">strawberry ✦</div>
+      <div class="floaty f2">balsamic drizzle</div>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll<div class="stick"></div></div>
+</section>
+
+<section id="story" class="paper-section">
+  <span class="section-tag">Our Story</span>
+  <h2 class="headline reveal">Comfort food, plated like a scrapbook.</h2>
+  <p class="sub reveal r1">Every menu, every signboard, every toast at Soft Serve Co. is built like a torn-paper collage — honest ingredients pinned together with a little whimsy. No pretense, just good food.</p>
+
+  <div class="about-grid">
+    <div class="about-art reveal r1">
+      <img class="ripped" src="img2.png.jpeg" alt="Classic English Breakfast illustration">
+      <div class="pin"></div>
+    </div>
+    <div>
+      <div class="about-points">
+        <div class="point reveal r1">
+          <div class="ic">🍳</div>
+          <div><h4>All-day breakfast</h4><p>Hash browns, chicken sausages, fluffy omelettes & buttered toast — served whenever you're hungry, not just before noon.</p></div>
+        </div>
+        <div class="point reveal r2">
+          <div class="ic">🍓</div>
+          <div><h4>Loaded signature toasts</h4><p>Burrata, balsamic, seasonal fruit, honey drizzle — toast reimagined as the main event, not an afterthought.</p></div>
+        </div>
+        <div class="point reveal r3">
+          <div class="ic">🍦</div>
+          <div><h4>Soft-serve, always</h4><p>Our namesake scoop, swirled fresh — the reason regulars in Alwarpet keep coming back.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="paper-section menu-section">
+  <span class="section-tag">On the Menu</span>
+  <h2 class="headline reveal">Three toasts, one obsession with detail.</h2>
+
+  <div class="menu-grid">
+    <div class="menu-card reveal r1">
+      <div class="tag-label">Chrich ✦</div>
+      <div class="imgwrap"><img src="img3.png.jpeg" alt="Mozzarella & cherry tomato toast"></div>
+      <h3>Burrata Caprese Toast</h3>
+      <p>Torn sourdough, fresh mozzarella, cherry tomato, basil, balsamic glaze.</p>
+      <div class="price"><span class="amt">₹289</span><span class="ord">Order →</span></div>
+    </div>
+    <div class="menu-card reveal r2">
+      <div class="tag-label">strawberry</div>
+      <div class="imgwrap"><img src="img6.png.jpeg" alt="Strawberry blueberry toast"></div>
+      <h3>Berry Mascarpone Toast</h3>
+      <p>Brioche, whipped mascarpone, strawberry, blueberry, honey drizzle.</p>
+      <div class="price"><span class="amt">₹259</span><span class="ord">Order →</span></div>
+    </div>
+    <div class="menu-card reveal r3">
+      <div class="tag-label">classic</div>
+      <div class="imgwrap"><img src="img2.png.jpeg" alt="Classic English Breakfast plate"></div>
+      <h3>Classic English Breakfast</h3>
+      <p>Chicken sausage, hash brown, baked beans, fluffy omelette, buttered toast.</p>
+      <div class="price"><span class="amt">₹329</span><span class="ord">Order →</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="marquee" id="marquee">
+    <span>Home delivery</span><span>Step-free entry</span><span>Free parking</span><span>Wifi</span><span>Kid friendly</span><span>Vegetarian friendly</span><span>Booth seating</span><span>Large group seating</span>
+    <span>Home delivery</span><span>Step-free entry</span><span>Free parking</span><span>Wifi</span><span>Kid friendly</span><span>Vegetarian friendly</span><span>Booth seating</span><span>Large group seating</span>
+  </div>
+</div>
+
+
+<section id="amenities" class="paper-section">
+  <span class="section-tag">Good to know</span>
+  <h2 class="headline reveal">Everything that makes a visit easy.</h2>
+
+  <div class="feat-grid">
+    <div class="feat reveal r1"><div class="ic">🚗</div><h4>Parking available</h4><p>Free parking right outside, no circling the block.</p></div>
+    <div class="feat reveal r1"><div class="ic">♿</div><h4>Step-free entry</h4><p>Easy access at street level for everyone.</p></div>
+    <div class="feat reveal r2"><div class="ic">🔇</div><h4>Less noisy</h4><p>A calm room built for conversation, not shouting over it.</p></div>
+    <div class="feat reveal r2"><div class="ic">📶</div><h4>Free Wifi</h4><p>Stay a while — work, catch up, or just scroll.</p></div>
+    <div class="feat reveal r3"><div class="ic">🪑</div><h4>Booth seating</h4><p>Cozy booths for two, or push tables together for more.</p></div>
+    <div class="feat reveal r3"><div class="ic">🍽️</div><h4>Baby high chair</h4><p>Bring the whole family — we've got you covered.</p></div>
+    <div class="feat reveal r4"><div class="ic">🥗</div><h4>Vegetarian friendly</h4><p>A full vegetarian line-up across breakfast, toasts & soft-serve.</p></div>
+    <div class="feat reveal r4"><div class="ic">👨‍👩‍👧‍👦</div><h4>Large group seating</h4><p>Hosting a birthday or a get-together? We can fit you in.</p></div>
+  </div>
+</section>
+
+<section class="gallery">
+  <span class="section-tag">Inside the Café</span>
+  <h2 class="headline reveal">A peek at the plates.</h2>
+  <div class="gallery-row">
+    <img class="par reveal r1 tall" src="img2.png.jpeg" alt="English breakfast spread">
+    <img class="par reveal r2" src="img6.png.jpeg" alt="Strawberry toast close up">
+    <div class="stack">
+      <img class="par reveal r1" src="img3.png.jpeg" alt="Toast detail">
+      <img class="par reveal r2" src="img7.png.jpeg" alt="Breakfast detail">
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="paper-section loc-section">
+  <span class="section-tag">Visit Us</span>
+  <h2 class="headline reveal">Find your table in Alwarpet.</h2>
+
+  <div class="loc-grid">
+    <div class="loc-card reveal r1">
+      <div class="rating">
+        <span class="stars">★★★☆☆</span>
+        <span class="count">3.0 · 32 reviews</span>
+      </div>
+      <h3>Soft Serve Co.</h3>
+      <p class="addr">T 76 B, 2, 29th Cross St, Ashtalaxmi Garden,<br>Besant Nagar, Chennai, Tamil Nadu 600090</p>
+      <div class="hours"><span class="dot-live"></span> Open now · Closes 12 am</div>
+      <div class="loc-tags">
+        <span>Dessert Parlour</span><span>Café</span><span>All day breakfast</span><span>Indoor seating</span><span>Stags allowed</span>
+      </div>
+      <a href="#order" class="btn btn-solid" id="order">Order Online ↗</a>
+    </div>
+
+    <div class="form-card reveal r2">
+      <p class="hand">Reserve a booth →</p>
+      <p class="sub" style="margin-top:6px;">Tell us when you're coming, we'll have the table ready.</p>
+      <form class="booking" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Request sent ✓';">
+        <div class="row">
+          <input type="text" placeholder="Your name" required>
+          <input type="tel" placeholder="Phone number" required>
+        </div>
+        <div class="row">
+          <input type="date" required>
+          <select required>
+            <option value="">Party size</option>
+            <option>2 guests</option>
+            <option>3–4 guests</option>
+            <option>5–8 guests</option>
+            <option>8+ guests</option>
+          </select>
+        </div>
+        <button type="submit">Book a Table</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="brand"><div class="stamp">SS</div>Soft Serve Co.</div>
+      <p>A dessert parlour & café in Alwarpet, Chennai — serving loaded toasts, all-day breakfast, and soft-serve since day one. Good food, good mood.</p>
+    </div>
+    <div class="foot-links">
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="#menu">Menu</a>
+        <a href="#story">Our Story</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#visit">Visit Us</a>
+      </div>
+      <div class="foot-col">
+        <h5>Nearby</h5>
+        <a href="#">Abhiramapuram</a>
+        <a href="#">Teynampet</a>
+        <a href="#">Anna Salai</a>
+        <a href="#">Mandaveli</a>
+      </div>
+      <div class="foot-col">
+        <h5>Get in touch</h5>
+        <a href="#">Order Online</a>
+        <a href="#">Book a Table</a>
+        <a href="#">Chennai, India</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Soft Serve Co., Alwarpet. All rights reserved.</span>
+    <span>Restaurants in Chennai · Dessert Parlour in Alwarpet · Café near me</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  const parEls = document.querySelectorAll('.par');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if(!ticking){
+      requestAnimationFrame(() => {
+        parEls.forEach((el, i) => {
+          const rect = el.getBoundingClientRect();
+          const speed = (i % 2 === 0) ? 0.04 : -0.04;
+          const offset = (rect.top - window.innerHeight/2) * speed;
+          el.style.transform = `translateY(${offset}px)`;
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  const marquee = document.getElementById('marquee');
+  marquee.addEventListener('mouseenter', () => marquee.style.animationPlayState='paused');
+  marquee.addEventListener('mouseleave', () => marquee.style.animationPlayState='running');
+</script>
+
+</body>
+</html>
